@@ -1,6 +1,6 @@
 //CONDITIONAL STATEMENT
 //control 
-
+//they are used to perform actions based on conditions
 const myBalance = 3000;
 const transaction = 9000;
 //if statement 

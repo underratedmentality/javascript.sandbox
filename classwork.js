@@ -124,6 +124,76 @@ switch (grade){
 
 
 
+const dolphins1 = 96;
+const dolphins2 = 108;
+const dolphins3 = 89;
+console.log(dolphins1 + dolphins2 + dolphins3);
+const averageDolphinScore = 293;
+console.log(averageDolphinScore / 3);
+const TotalAverageDolphinScore = 97.66;
+
+const pandas1 = 88;
+const pandas2 = 91;
+const pandas3 = 110;
+console.log(pandas1 + pandas2 + pandas3);
+const averagePandaScore = 289;
+console.log(averagePandaScore / 3);
+
+const TotalaveragePandaScore = 96.33;
+
+console.log(`average dolphin score is ${TotalAverageDolphinScore}`);
+console.log(`average panda score is ${TotalaveragePandaScore}`);
+
+//if else statement
+//if (condition){
+//first ation}
+//else {
+//section action}
+
+if (TotalAverageDolphinScore === TotalaveragePandaScore) {
+  console.log("it is a tie");
+} else if (TotalAverageDolphinScore > TotalaveragePandaScore) {
+  console.log("Dolphins win");
+} else {
+  console.log("Pandas win");
+}
+
+if (
+  TotalAverageDolphinScore > TotalaveragePandaScore &&
+  TotalAverageDolphinScore >= 100
+) {
+  console.log("Dolphins Win");
+} else if (
+  TotalaveragePandaScore > TotalAverageDolphinScore &&
+  TotalaveragePandaScore > 100
+) {
+  console.log("Pandas Win");
+} else {
+  console.log("No team wins");
+}
+
+if (
+  TotalAverageDolphinScore > TotalaveragePandaScore &&
+  TotalAverageDolphinScore >= 100
+) {
+  console.log("Dolphins Win");
+} else if (
+  TotalaveragePandaScore > TotalAverageDolphinScore &&
+  TotalaveragePandaScore >= 100
+) {
+  console.log("Pandas Win");
+} else if (
+  TotalAverageDolphinScore === TotalaveragePandaScore &&
+  TotalAverageDolphinScore >= 100 &&
+  TotalaveragePandaScore >= 100
+) {
+  console.log("it is a draw");
+} else {
+  console.log("No team wins");
+}
+
+
+
 
 
 

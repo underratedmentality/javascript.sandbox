@@ -7,7 +7,7 @@ console.log (num.toFixed(0));
 console.log(num.toFixed(3));
 console.log(num.toFixed(2));
 
-// + - *
+// + - / *
 const x=7;
 const y=7;
 console.log(x+y);
@@ -36,7 +36,7 @@ let savings= 5000;
 savings= savings + 3000;
 //savings +- 30000
 savings= savings + 10000;
-//savimg-=savings-7000
+//saving-=savings-7000
 savings=7000;
 //525
 //savings = savings -525;
