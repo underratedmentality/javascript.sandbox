@@ -1,66 +1,124 @@
-// write a function that takes in a string 
-// and converts the first letter of every word to uppercase 
+// // DOM - Document Object Model
+// // How to select element on a page (class, id, tag, combination)
 
-const firstLetterToCaps = (str) => {
-   const result = str.split(" ").map((word) => {
-      return word.charAt(0).toUpperCase() + word.slice(1). toLowerCase();
-   });
-   return result.join(" ");
-}
-console.log(firstLetterToCaps("testing is fun and stressful"));
-
-// write a function that checks if the parameter is a number or not return true or false
-
-const checkNum = (arg) => typeof arg === "number"
-console.log(checkNum(34));
+// // Get element by the ID ;
+// //const text = document.getElementById("text");
+// //console.log(text);
 
 
-const currencyData = [
-  { from: "GBP", to: "NGN", rate: 2200 },
-  { from: "USD", to: "NGN", rate: 1700 },
-  { from: "EUR", to: "NGN", rate: 1900 },
-  { from: "YEN", to: "NGN", rate: 400 },
-];
-// iterate over the currencyData and log a message 
-// The exchange rate for USD to NGN is 1700
-currencyData.map((currencyRate) => {
-   console.log (`the exchange rate for ${currencyRate.from} to ${currencyRate.to} is ${currencyRate.rate}`);
+// // get an element by the CLASS
+// const message = document.getElementsByClassName("message");
+// console.log(message);
+
+
+// // querySelector, querySelectorAll- they use CSS selectors for picking elements (., #, div)
+// const paragraph = document.querySelector("#text")
+// console.log(paragraph);
+// const paragraphs = document.querySelectorAll(".message")
+// console.log(paragraphs);
+// //Nodelist- array methods can be performed on them. 
+
+// const heading6 = document.querySelector("div > h6")
+// console.log(heading6);
+
+// // textContent, innerText, innerHTML 
+
+// // textContent 
+//  const heading = document.querySelector("h1")
+// // console.log(heading.textContent);
+// // heading.textContent += "JS IS FUN"
+
+// // innerText 
+// console.log(heading.innerText);
+// heading.innerText = "JS IS GOOD";
+
+//  const div = document.querySelector("div")
+//  console.log(div.innerHTML);
+//  div.innerHTML += "<p>okay<p/>";
+//  const name = "John";
+//  div.innerHTML = `<h1>Welcome ${name}<h1/>`;
+
+//  // change attributes 
+
+//  const beginPara = document.querySelector(".begin");
+//  console.log(beginPara);
+// beginPara.className = "okay";
+// beginPara.id = "good";
+// beginPara.style.color = "red";
+// beginPara.style.backgroundColor = "green";
+
+// // interact with CSS classnames 
+// const h1 = document.querySelector("h1");
+// h1.classname = "success";
+ 
+//  // classlist - add or remove 
+
+//  const msg = document.querySelector("h3.message");
+//  // console.log (msg.classList)
+//  msg.classList.add("error");
+//  msg.classList.remove("example");
+//  console.log(msg.classList.contains("good"));
+ 
+//  console.log(msg);
+
+//  // create elements 
+//  const section = document.createElement("section");
+//  section.innerHTML = "<h1>Created from JS</h1>";
+
+// // append it 
+// const body = document.querySelector("body");
+// body.appendChild(section);
+
+// // remove element (removeChild);
+// //body.removeChild(section);
+
+// //replace child
+// const link = document.createElement("a");
+// link.innerText = "visit google";
+// link.href = "https://google.com";
+// link.setAttribute("href", "https://google.com");
+
+// body.replaceChild(link, section);
+
+// // responding to users interactions
+//  // event (click), event handler 
+// // addEventListener - handle
+//  const btn = document.querySelector("button")
+
+// btn.addEventListener("click", () => {
+//     console.log("button clicked");
+//     body.style.backgroundColor = "aqua"
+// })
+
+// // form handling
+
+const form = document.querySelector ("form")
+// submit
+form.addEventListener('submit', (event) => {
+    // default of forms when submitted is to refresh the page
+    event.preventDefault();
+
+    //select the input feilds 
+    const username = document.querySelector(".username");
+     const password = document.querySelector(".password");
+     
+     const usernameValue = username.value.trim();
+     const passwordValue = password.value;
+     const small = document.querySelector("small");
+    // console.log(usernameValue, passwordValue);
+    // validate the password field (password must not include password)
+     if (!usernameValue || !passwordValue) {
+        // display error message 
+       small.textContent = "please fill all fields"
+     }
+     else if (usernameValue.length < 5) {
+        small.textContent = "minimum username length is 5";
+     }
+     else if (passwordValue.toLowerCase().includes('password')) {
+        small.innerText = "password must not include password"
+     }
+     else {
+        //SUBMIT THE FORM
+        small.textContent = "Form Submitted"
+     }
 })
-// write a func that returns the exchange rate for that currency pair
-//or an appropriate message if the pair is not found
-const findCurrencyPair = (baseCurrency, toCurrency) => {
-  //search through the currencyData to find a match
-  const pair = currencyData.find((currency) => {
-    return currency.from === baseCurrency && currency.to === toCurrency;
-  });
-
-  if (pair) {
-    console.log(
-      `The Exchange Rate for ${pair.from} to ${pair.to} is ${pair.rate}`
-    );
-  } else {
-    console.log("The currency pair cannot be found");
-  }
-};
-
-findCurrencyPair("AUS", "NGN");
-
-const convertCurrency = (baseCurrency, toCurrency, amount) => {
-      const pair = currencyData.find((currency) => {
-        return currency.from === baseCurrency && currency.to === toCurrency;
-      });
-    if (pair) {
-        console.log(`${amount} ${pair.from} is equaivalent to ${amount*pair.rate} ${pair.to}`);
-    } else {
-        console.log("Currency pair not found");
-    }
-}
-convertCurrency("GBP", "NGN", 500)
-// write a function  to add the currency data list AUS NGN 300
-const addNewCurrency = (from, to, rate) => {
-   //push
-   currencyData.push ({from, to, rate});
-   console.log(currencyData);
-   
-};
-addNewCurrency("AUS", "NGN", 1040)
